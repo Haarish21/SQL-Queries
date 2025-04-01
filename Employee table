@@ -1,0 +1,56 @@
+
+-- create
+CREATE TABLE EMPLOYEE (
+  empId INTEGER PRIMARY KEY Auto_Increment,
+  name TEXT NOT NULL,
+  designation varchar(20),
+  salary INTEGER , 
+  date_of_join date,
+  location varchar(20)
+);
+
+insert into EMPLOYEE(name,designation,salary,date_of_join,location) values('haarish','manager','100000','2025-03-21','chennai');
+insert into EMPLOYEE(name,designation,salary,date_of_join,location) values('manoj','asst.manager','80000','2025-03-27','hyderabad');
+insert into EMPLOYEE(name,designation,salary,date_of_join,location) values('jana','senior.manager','120000','2025-02-21','chennai');
+insert into EMPLOYEE(name,designation,salary,date_of_join,location) values('suresh','managing director','200000','2023-01-21','chennai');
+insert into EMPLOYEE(name,designation,salary,date_of_join,location) values('kavi','manager','100000','2024-03-21','bangalore');
+
+select * from EMPLOYEE;
+
+-- update location of emp2 
+update EMPLOYEE set location = 'mumbai' where empId = 2;
+select * from EMPLOYEE;
+
+-- count by location
+SELECT location, COUNT(*) AS count from EMPLOYEE GROUP BY location;
+
+-- update salary of emp3
+update EMPLOYEE set salary = '130000' where empId = 3;
+SELECT * from EMPLOYEE;
+
+-- delete emp from employee table 
+delete from EMPLOYEE where empId = 5;
+SELECT * from EMPLOYEE;
+
+-- create new column in the table which need to add email
+ALTER TABLE EMPLOYEE ADD email_id varchar(40);
+SELECT * from EMPLOYEE;
+
+-- total salary
+SELECT SUM(salary) AS Total_salary from EMPLOYEE;
+
+-- avg salary
+SELECT avg(salary) AS Avg_salary from EMPLOYEE;
+
+-- high salary
+SELECT max(salary) AS high from EMPLOYEE;
+
+-- change the role of emp1
+update EMPLOYEE set designation = 'senior.manager' where empId = 1;
+SELECT * from EMPLOYEE;
+
+-- -- remove date of join column from TABLE
+ALTER TABLE EMPLOYEE drop column date_of_join;
+SELECT * from EMPLOYEE;
+
+
